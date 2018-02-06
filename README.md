@@ -4,4 +4,5 @@
 API with problems useful for testing
 
 To build: bundle install
-To run: ruby janky-api.rb
+
+To run: /scripts/start_local.sh
