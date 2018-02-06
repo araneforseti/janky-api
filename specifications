@@ -1,0 +1,18 @@
+An info sheet is intended to keep track of stats for an rpg. Each sheet contains 6 attributes (Strength, Dexterity, Constitution, Will, Intelligence, Charisma) and a list of skills
+
+There are 4 Possible Calls: GET /sheets, POST /sheets, GET /sheets/{sheetId}, DELETE /sheets/{sheetId}
+
+Get /sheets
+- User retrieves all created sheets
+
+Post /sheets
+- User is able to create an info sheet
+- Validations:
+-- All attributes are between 0 and 100
+-- A skill’s value is between 0 and 100
+
+Get /sheets/{sheetId}
+- User retrieves a single sheet by its id
+
+Delete /sheets/{sheetId}
+- User can delete sheet

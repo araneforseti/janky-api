@@ -6,6 +6,7 @@ require './lib/repository.rb'
 require './lib/sheet.rb'
 
 redis = Redis.new
+set :show_exceptions, :after_handler
 
 namespace '/api/v1' do
   before do
@@ -39,5 +40,17 @@ namespace '/api/v1' do
     sheet = Sheet.new(params["name"], params)
     @repository.add(sheet)
     sheet.to_json
+  end
+
+  error 500 do
+    {"message": "INTERNAL ERROR"}.to_json
+  end
+
+  error 404 do
+    {"message": "Resource not found"}.to_json
+  end
+
+  error 400 do
+    {"message": "Problem with request format"}.to_json
   end
 end
