@@ -15,23 +15,23 @@ namespace '/api/v1' do
   end
 
   get '/sheets' do
-    if params[:name]
-      sheet = @repository.get(params[:name])
-      if sheet
-        response = Hash.new
-        response[:sheet] = sheet
-        response.to_json
-      else
-        halt 404
-      end
-    else
-      sheets = []
-      @repository.all.collect{ |sheet|
-        sheets << sheet
-      }
+    sheets = []
+    @repository.all.collect{ |sheet|
+      sheets << sheet
+    }
+    response = Hash.new
+    response[:sheets] = sheets
+    response.to_json
+  end
+
+  get '/sheets/:name' do
+    sheet = @repository.get(params[:name])
+    if sheet
       response = Hash.new
-      response[:sheets] = sheets
+      response[:sheet] = sheet
       response.to_json
+    else
+      halt 404
     end
   end
 
