@@ -25,13 +25,14 @@ namespace '/api/v1' do
   end
 
   get '/sheets/:name' do
-    sheet = @repository.get(params[:name])
+    name = params[:name]
+    sheet = @repository.get(name)
     if sheet
       response = Hash.new
       response[:sheet] = sheet
       response.to_json
     else
-      halt 404
+      halt 404, {"message" => "Sheet #{name} not found"}.to_json
     end
   end
 
@@ -48,10 +49,6 @@ namespace '/api/v1' do
 
   error 500 do
     {"message": "INTERNAL ERROR"}.to_json
-  end
-
-  error 404 do
-    {"message": "Resource not found"}.to_json
   end
 
   error 400 do
