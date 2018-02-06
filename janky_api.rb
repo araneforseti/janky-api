@@ -38,8 +38,12 @@ namespace '/api/v1' do
   post '/sheets' do
     params = JSON.parse(request.body.read)
     sheet = Sheet.new(params["name"], params)
-    @repository.add(sheet)
-    sheet.to_json
+    if sheet.valid?
+      @repository.add(sheet)
+      sheet.to_json
+    else
+      halt 400
+    end
   end
 
   error 500 do
