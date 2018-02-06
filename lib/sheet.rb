@@ -19,6 +19,36 @@ class Sheet
     self.skills = params["skills"]? params["skills"] : []
   end
 
+  def valid?
+    valid = true
+    if(!self.name.is_a?(String) || self.name.empty?)then
+      valid = false
+    end
+    if(!(self.strength > 0 && self.strength < 100)) then
+      valid = false
+    end
+    if !(self.dexterity >= 0 && self.dexterity <= 100) then
+      valid = false
+    end
+    if !(self.constitution >= 0 && self.constitution <= 100) then
+      valid = false
+    end
+    if !(self.will >= 0 && self.will <= 100) then
+      valid = false
+    end
+    if !(self.intelligence >= 0 && self.intelligence <= 100) then
+      valid = false
+    end
+    if !all_skills_valid then
+      valid = false
+    end
+    valid 
+  end
+
+  def all_skills_valid
+    true
+  end
+
   def add_skill(skill)
     self.skills << skill
   end

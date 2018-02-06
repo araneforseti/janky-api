@@ -1,5 +1,6 @@
 Specs
 - Does not indicate what is and is not required
+- Does not indicate if range is meant to be inclusive or exclusive (inclusive is intended)
 
 Docs
 
