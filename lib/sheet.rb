@@ -7,6 +7,7 @@ class Sheet
   attr_accessor :charisma
   attr_accessor :skills
   attr_accessor :name
+  attr_accessor :validation_errors
 
   def initialize(name, params={})
     self.name = name
@@ -17,24 +18,31 @@ class Sheet
     self.intelligence = params["intelligence"]? params["intelligence"] : 10
     self.charisma = params["charisma"]? params["charisma"] : 10
     self.skills = params["skills"]? params["skills"] : []
+    self.validation_errors = []
   end
 
   def valid?
     valid = true
+    self.validation_errors = []
     if(!self.name.is_a?(String) || self.name.empty?)then
       valid = false
+      self.validation_errors << "Name must be a non-empty string"
     end
     if(!(self.strength > 0 && self.strength < 100)) then
       valid = false
+      self.add_error "Strength must be between 0 and 100"
     end
     if !(self.dexterity >= 0 && self.dexterity <= 100) then
       valid = false
+      self.add_error "Dexterity must be between 0 and 100"
     end
     if !(self.constitution >= 0 && self.constitution <= 100) then
+      self.add_error "Dexterity must be between 0 and 100"
       valid = false
     end
     if !(self.will >= 0 && self.will <= 100) then
       valid = false
+      self.add_error "Will must be between 0 and 100"
     end
     if !(self.intelligence >= 0 && self.intelligence <= 100) then
       valid = false
@@ -43,6 +51,14 @@ class Sheet
       valid = false
     end
     valid 
+  end
+
+  def add_error message
+    self.validation_errors << {"message": message}
+  end
+
+  def errors
+    self.validation_errors
   end
 
   def all_skills_valid

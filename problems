@@ -3,6 +3,14 @@ Specs
 - Does not indicate if range is meant to be inclusive or exclusive (inclusive is intended)
 
 Docs
+- No indication of range requirements
 
 Functionality
 - DELETE is completely missing
+- While a missing sheet 404 is caught, a mistyped url is not
+- skills do not work according to docs
+- id field is not used
+- Intelligence field does not properly report validation errors
+- Constitution validation errors report as Dexterity
+- Strength validations are exclusive
+- Internal Server error if non-numbers are given

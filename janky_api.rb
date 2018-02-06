@@ -43,15 +43,11 @@ namespace '/api/v1' do
       @repository.add(sheet)
       sheet.to_json
     else
-      halt 400
+      halt 400, {"errors" => sheet.errors}.to_json
     end
   end
 
   error 500 do
     {"message": "INTERNAL ERROR"}.to_json
-  end
-
-  error 400 do
-    {"message": "Problem with request format"}.to_json
   end
 end
