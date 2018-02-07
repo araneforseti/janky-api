@@ -1,3 +1,4 @@
 dump.rdb
 *.swp
 Gemfile.lock
+.DS_Store
