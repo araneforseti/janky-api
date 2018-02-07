@@ -2,6 +2,8 @@
 
 API with problems useful for practicing QA or testing QA tools against. This uses a redis server as a data backend.
 
+This API requires ruby and was built for v2.2
+
 To build: bundle install
 
 To run: /scripts/start_local.sh
