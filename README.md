@@ -1,8 +1,13 @@
 # janky-api
-[![Build Status](https://travis-ci.org/araneforseti/janky-api-server.svg?branch=master)](https://travis-ci.org/araneforseti/janky-api-server)
 
-API with problems useful for testing
+API with problems useful for practicing QA or testing QA tools against. This uses a redis server as a data backend.
 
 To build: bundle install
 
 To run: /scripts/start_local.sh
+
+See documentation: http://localhost:4567/api-docs
+
+Requirements the API is attempting to fulfill: http://localhost:4567/specifications
+
+If you are curious, the problems the API (and docs), as well as some analyst things are recorded in the problems file
