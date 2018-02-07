@@ -8,6 +8,10 @@ require './lib/sheet.rb'
 redis = Redis.new
 set :show_exceptions, :after_handler
 
+get '/api-docs' do
+  send_file File.join(settings.public_folder, 'index.html')
+end
+
 namespace '/api/v1' do
   before do
     content_type 'application/json'
