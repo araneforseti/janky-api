@@ -6,7 +6,7 @@ include Rack::Test::Methods
 
 ENV['RACK_ENV'] = 'test'
 
-require File.expand_path '../../rpglife_app.rb', __FILE__
+require File.expand_path '../../janky_api.rb', __FILE__
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
