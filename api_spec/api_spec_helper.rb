@@ -19,8 +19,8 @@ RSpec.configure do |config|
 
   config.before(:each) do
     @redis = Redis.new
-    #keys = @redis.keys('*')
-    #keys.each{ |key| @redis.del(key)}
+    keys = @redis.keys('*')
+    keys.each{ |key| @redis.del(key)}
   end
 
   config.warnings = true
