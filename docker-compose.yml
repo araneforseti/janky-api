@@ -1,0 +1,14 @@
+version: "3.0"
+
+services:
+    janky_api:
+      image: araneforseti/janky-api
+      build: .
+      ports:
+        - "4567:4567"
+      environment:
+        REDIS_URL: redis://redis_server:6379
+    redis_server:
+      image: redis:4
+      ports:
+        - "6379:6379"
