@@ -5,7 +5,7 @@ services:
   - docker
 
 install:
-  - docker compose up --build -d
+  - docker-compose up --build -d
 
 script:
   - docker run araneforseti/janky-api /bin/sh -c "bundle exec rake specs"
