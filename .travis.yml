@@ -1,11 +1,8 @@
 sudo: required
 
 services:
-  - redis-server
   - docker
 
-install:
-  - docker-compose up --build -d
-
 script:
+  - ./scripts/docker/start_docker.sh
   - docker run araneforseti/janky-api /bin/sh -c "bundle exec rake specs"
