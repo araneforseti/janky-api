@@ -1,5 +1,8 @@
 sudo: required
 
 services:
-  - redis-server
   - docker
+
+script:
+  - ./scripts/docker/start_docker.sh
+  - bundle exec rake specs
