@@ -1,4 +1,5 @@
 # janky-api
+[![Build Status](https://travis-ci.org/araneforseti/janky-api.svg?branch=master)](https://travis-ci.org/araneforseti/janky-api)
 
 API with problems useful for practicing QA or testing QA tools against. This uses a redis server as a data backend.
 
