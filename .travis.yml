@@ -5,4 +5,4 @@ services:
 
 script:
   - ./scripts/docker/start_docker.sh
-  - docker run araneforseti/janky-api /bin/sh -c "bundle exec rake specs"
+  - bundle exec rake specs
