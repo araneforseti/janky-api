@@ -1,8 +1,0 @@
-sudo: required
-
-services:
-  - docker
-
-script:
-  - ./scripts/docker/start_docker.sh
-  - bundle exec rake specs
