@@ -9,6 +9,6 @@ services:
       environment:
         REDIS_URL: redis://redis_server:6379
     redis_server:
-      image: redis:4
+      image: redis:8
       ports:
         - "6379:6379"
