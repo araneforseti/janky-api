@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:4.0
 
 # Uncomment the following line if a Gemfile.lock is used
 # RUN bundle config --global frozen 1
